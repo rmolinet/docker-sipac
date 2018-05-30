@@ -25,7 +25,8 @@ services:
         expose:
             - "9004"
         extra_hosts:
-            - "dockerhost:172.17.0.1"
+        #windows  - "dockerhost:10.0.75.1"
+        #linux    - "dockerhost:172.17.0.1"
 
    postgresql:
         image: nexus.prod.uci.cu/postgres:alpine
@@ -40,7 +41,7 @@ services:
             POSTGRES_USER: postgres
 
     pgadmin4:
-        image: nexus.prod.uci.cu/rmolinet/sipac-pgadmin4:2.1
+        image: nexus.prod.uci.cu/rmolinet/sipac-pgadmin4:3.0
         ports:
             - "5050:5050"
         depends_on:
