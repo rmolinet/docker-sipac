@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
     nginx:
-        image: nexus.prod.uci.cu/nginx:alpine
+        image: nginx:alpine
         ports:
             - "80:80"
             - "443:443"
@@ -17,7 +17,7 @@ services:
             - ./conf/nginx.key:/etc/ssl/private/nginx.key
     
     php5_fpm:
-        image: nexus.prod.uci.cu/rmolinet/sipac-php-alpine:3.0
+        image: rmolinet/sipac-php-alpine:4.0
         volumes:
             #- ./conf/sipac_2.4:/var/www/html/
             - ./conf/php.ini:/usr/local/etc/php/php.ini
@@ -29,7 +29,7 @@ services:
         #linux    - "dockerhost:172.17.0.1"
 
    postgresql:
-        image: nexus.prod.uci.cu/postgres:alpine
+        image: postgres:alpine
         ports:
             - "5432:5432"   
         volumes:
@@ -41,7 +41,7 @@ services:
             POSTGRES_USER: postgres
 
     pgadmin4:
-        image: nexus.prod.uci.cu/rmolinet/sipac-pgadmin4:3.0
+        image: rmolinet/sipac-pgadmin4:3.5
         ports:
             - "5050:5050"
         depends_on:
