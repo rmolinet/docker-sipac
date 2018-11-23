@@ -17,7 +17,7 @@ services:
             - ./conf/nginx.key:/etc/ssl/private/nginx.key
     
     php5_fpm:
-        image: rmolinet/sipac-php-alpine:4.0
+        image: rmolinet/php5.6-fpm-alpine
         volumes:
             #- ./conf/sipac_2.4:/var/www/html/
             - ./conf/php.ini:/usr/local/etc/php/php.ini
